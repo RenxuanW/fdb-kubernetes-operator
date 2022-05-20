@@ -51,6 +51,9 @@ COPY --from=builder /etc/group /etc/group
 COPY --chown=fdb:fdb --from=builder /workspace/bin/manager .
 COPY --from=builder /usr/lib/libfdb_c.so /usr/lib/
 COPY --chown=fdb:fdb --from=builder /var/log/fdb/.keep /var/log/fdb/.keep
+COPY libfdb_c.so /usr/lib/libfdb_c.so
+# RUN mkdir -p /usr/bin/fdb/7.1
+# COPY fdbcli /usr/bin/fdb/7.1/fdbcli
 
 # Set to the numeric UID of fdb user to satisfy PodSecurityPolices which enforce runAsNonRoot
 USER 4059
