@@ -158,7 +158,7 @@ ${GENERATED_GO}: ${GO_SRC} hack/boilerplate.go.txt ${CONTROLLER_GEN}
 
 # Build the container image
 container-build:
-	$(BUILDER) build --build-arg=TAG=${TAG} ${img_build_args} -t ${IMG} .
+	$(BUILDER) build --no-cache --build-arg=TAG=${TAG} ${img_build_args} -t ${IMG} .
 
 # Push the container image
 container-push:
